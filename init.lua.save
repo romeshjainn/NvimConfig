@@ -1,0 +1,32 @@
+sas-- Lazy.nvim (Plugin Manager)
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git", "clone", "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git", lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+
+require("lazy").setup({
+  -- File Tree (Sidebar)
+  { "nvim-tree/nvim-tree.lua", config = function() require("nvim-tree").setup() end },
+
+  -- Status Line (Bottom Bar)
+  { "nvim-lualine/lualine.nvim", config = function() require("lualine").setup() end },
+
+  -- Prettier & Formatter
+  { "MunifTanjim/prettier.nvim" },
+
+  -- Telescope (Fuzzy Finder)
+  { "nvim-telescope/telescope.nvim", dependencies = { "nvim-lua/plenary.nvim" } }
+})
+
+-- Basic Settings
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.termguicolors = true
+vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>") -- Open File Tree with <leader>+e
+vim.g.mapleader = " "
+vim.cmd("autocmd TermOpen * startinsert")
+vim.opt.shellcmdflag = "-c"
