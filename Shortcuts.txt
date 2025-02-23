@@ -1,0 +1,15 @@
+leader e - to toggle sidebar
+ggVG - select all text
+V - select current line 
+V - with arrow keys to expand selection
+vab - to select all the content in the ()
+vib - to select the text in the current block 
+yy - to select current line code
+y$ - to select content after cursor
+vvGBy - to copy all text
+G - to go to end of the file
+p - paste after cursor
+P - paste before cursor
+Ctrl + r + " - paste in normal mode
+
+gcc - to comment /uncomment	
